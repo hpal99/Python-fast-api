@@ -7,7 +7,7 @@ This is a simple FastAPI application containerized using Docker and automated wi
 
 🗂️ Project Structure
 
-fastapi-hello/
+ffastapi-hello/
 ├── app/
 │   └── main.py
 ├── Dockerfile
