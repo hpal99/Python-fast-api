@@ -1,22 +1,23 @@
 # 🚀 FastAPI Hello App with Docker & GitHub Actions CI
 
-This is a simple FastAPI application containerized using Docker and automated with GitHub Actions for CI/CD. It also includes optional Redis integration.
+This is a simple FastAPI application containerized using Docker and automated with GitHub Actions for CI/CD. It also includes Redis integration.
 
 ---
 
 
 🗂️ Project Structure
 
-ffastapi-hello/
+-hello/
 ├── app/
-│   └── main.py
+│   └── main.py        # FastAPI app
 ├── Dockerfile
 ├── docker-compose.yml
+├── .dockerignore
+├── requirements.txt
 ├── .github/
 │   └── workflows/
-│       └── docker.yml
+│       └── docker-fastapibuild-push.yml
 └── README.md
-
 
 ## 🐳 How to Run the App using Docker Compose
 
@@ -24,29 +25,28 @@ ffastapi-hello/
   
    git clone https://github.com/hpal99/fastapi-hello.git
    cd fastapi-hello
-2. Run the app with Docker Compose: docker-compose up
+2. Run the app with Docker Compose: 
+   docker-compose up
 
 3. Access the app:http://localhost:8000
 
-⚙️ CI/CD Pipeline (GitHub Actions)
+4. CI pipeline explanation (GitHub Actions) — step-by-step
 
-1. Every time you push code to the main branch:
+* What it does:
 
-2. GitHub Actions builds the Docker image.
+1. Runs on every push to main.
 
-3. Logs in securely to Docker Hub using GitHub Secrets.
+2. Checks out the repo, logs in to Docker Hub using secrets, builds the image, and pushes the image to your registry.
 
-4. Pushes the latest image to your Docker Hub repository.
+3. What you must add in GitHub repo settings:
 
-5. Workflow File: .github/workflows/docker-build-push.yml
+# DOCKER_USERNAME — your Docker Hub username (case-sensitive, not email)
 
-6. Secrets used:
+# DOCKER_PASSWORD — your Docker Hub password or Personal Access Token 
 
-DOCKER_USERNAME
-
-DOCKER_PASSWORD (or Access Token)
 
 📚 Key Learnings & Challenges Faced
+
 🔄 Docker Hub 404 Issue: Faced 404 while pushing – resolved by verifying DockerHub repo visibility and using correct username.
 
 🔐 Secrets Management: Learned how to securely pass Docker credentials to GitHub Actions.
@@ -66,5 +66,19 @@ Deploy to a cloud provider (e.g., Azure App Service or AWS ECS).
 
 Set up GitHub Container Registry as an alternative to Docker Hub.
 
+Useful commands (cheat-sheet)
+# build & run locally
+docker compose up --build
 
+# follow logs
+docker compose logs -f web
+
+# show containers
+docker ps
+
+# inspect health details
+docker ps
+
+# stop & remove
+docker compose down
 
