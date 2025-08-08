@@ -32,7 +32,7 @@ This is a simple FastAPI application containerized using Docker and automated wi
 
 4. CI pipeline explanation (GitHub Actions) — step-by-step
 
-* What it does:
+*What it does:
 
 1. Runs on every push to main.
 
@@ -40,12 +40,11 @@ This is a simple FastAPI application containerized using Docker and automated wi
 
 3. What you must add in GitHub repo settings:
 
-# DOCKER_USERNAME — your Docker Hub username (case-sensitive, not email)
+DOCKER_USERNAME — your Docker Hub username (case-sensitive, not email)
+DOCKER_PASSWORD — your Docker Hub password or Personal Access Token 
 
-# DOCKER_PASSWORD — your Docker Hub password or Personal Access Token 
 
-
-📚 Key Learnings & Challenges Faced
+# 📚 Key Learnings & Challenges Faced
 
 🔄 Docker Hub 404 Issue: Faced 404 while pushing – resolved by verifying DockerHub repo visibility and using correct username.
 
@@ -57,28 +56,28 @@ This is a simple FastAPI application containerized using Docker and automated wi
 
 🔁 Debugging CI Failures: Gained experience interpreting GitHub Actions logs and retrying after fixing small YAML errors.
 
-🌟 Improvements for Future
-Add unit tests and integrate testing in CI workflow.
+# 🌟 Improvements for Future
+1. Add unit tests and integrate testing in CI workflow.
 
-Push image with version tags (e.g., v1.0, latest) for better tracking.
+2. Push image with version tags (e.g., v1.0, latest) for better tracking.
 
-Deploy to a cloud provider (e.g., Azure App Service or AWS ECS).
+3. Deploy to a cloud provider (e.g., Azure App Service or AWS ECS).
 
-Set up GitHub Container Registry as an alternative to Docker Hub.
+4. Set up GitHub Container Registry as an alternative to Docker Hub.
 
 Useful commands (cheat-sheet)
-# build & run locally
+#build & run locally
 docker compose up --build
 
-# follow logs
+#follow logs
 docker compose logs -f web
 
-# show containers
+#show containers
 docker ps
 
-# inspect health details
+#inspect health details
 docker ps
 
-# stop & remove
+#stop & remove
 docker compose down
 
