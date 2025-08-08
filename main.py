@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-import redis
+from fastapi import FastAPI # pyright: ignore[reportMissingImports]
+import redis # pyright: ignore[reportMissingImports]
 
 app = FastAPI()
 
